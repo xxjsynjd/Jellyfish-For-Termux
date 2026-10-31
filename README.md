@@ -1,5 +1,51 @@
-# Jellyfish For Termux (Python 3.14)
-纯 Rust 编写的高性能字符串/发音处理库。本项目成功在 Termux (aarch64) 环境下编译出了 `cp314` 的 Wheel。
+# Overview
 
-## 安装
-`pip install jellyfish-*.whl --no-deps`
+**jellyfish** is a library for approximate & phonetic matching of strings.
+
+Source: <https://codeberg.org/jpt/jellyfish>
+
+Documentation: <https://jpt.sh/projects/jellyfish/>
+
+Issues: <https://codeberg.org/jpt/jellyfish/issues>
+
+[![PyPI badge](https://badge.fury.io/py/jellyfish.svg)](https://badge.fury.io/py/jellyfish)
+
+## Included Algorithms
+
+String comparison:
+
+* Levenshtein Distance
+* Damerau-Levenshtein Distance
+* Jaccard Index
+* Jaro Distance
+* Jaro-Winkler Distance
+* Match Rating Approach Comparison
+* Hamming Distance
+
+Phonetic encoding:
+
+* American Soundex
+* Metaphone
+* NYSIIS (New York State Identification and Intelligence System)
+* Match Rating Codex
+
+## Example Usage
+
+``` python
+>>> import jellyfish
+>>> jellyfish.levenshtein_distance('jellyfish', 'smellyfish')
+2
+>>> jellyfish.jaro_similarity('jellyfish', 'smellyfish')
+0.89629629629629637
+>>> jellyfish.damerau_levenshtein_distance('jellyfish', 'jellyfihs')
+1
+
+>>> jellyfish.metaphone('Jellyfish')
+'JLFX'
+>>> jellyfish.soundex('Jellyfish')
+'J412'
+>>> jellyfish.nysiis('Jellyfish')
+'JALYF'
+>>> jellyfish.match_rating_codex('Jellyfish')
+'JLLFSH'
+```
