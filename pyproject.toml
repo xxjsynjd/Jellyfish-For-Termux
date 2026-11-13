@@ -26,3 +26,4 @@ repository = "https://codeberg.org/jpt/jellyfish/"
 features = ["pyo3/extension-module", "python"]
 python-source = "python"
 module-name = "jellyfish._rustyfish"
+exclude = ["PKG-INFO"]
