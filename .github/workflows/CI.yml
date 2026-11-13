@@ -18,7 +18,7 @@ jobs:
         # 去掉了还没正式发布的 3.15，保留稳定的
         python-version: ["3.11", "3.12", "pypy3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
       - uses: actions/setup-python@v5
@@ -52,7 +52,7 @@ jobs:
         target: [x64, aarch64] # Termux 在 arm 设备上一般用 aarch64
         interpreter: ["3.11", "3.12", "pypy3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
       - name: Build wheels
